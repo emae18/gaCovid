@@ -1,0 +1,45 @@
+
+<div style="height: 100%; background-color: rgba(0, 174, 255, 0.068); " fxLayout="column" fxLayoutAlign="center center">
+    <mat-card fxLayout="column" fxLayoutAlign="center center" fxFlex="55" fxFlex.xs="75" fxLayoutGap="20px">
+      <img mat-card-image src="../../../assets/Bandera.png" alt="Titulo">
+      <hr width="100%" >   
+      <mat-card-header>
+        <mat-card-title>
+          COVID-19 Jujuy
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form fxLayout="column" fxLayoutGap="5px">
+          <mat-form-field appearance="outline" fxFlex="30">
+            <mat-label>Ingrese su e-mail</mat-label>
+            <!-- [formControl]="emailFormControl"  -->
+            <input matInput placeholder="nombre@gmail.com">
+            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field fxFlex="30" appearance="outline" >
+            <mat-label>Ingrese su contraseña</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+          <mat-checkbox fxFlex="10" fxLayout="row" fxFlexAlign="flex-end" >Recuerdame</mat-checkbox>
+          <button routerLink="/main" routerLinkActive="active" mat-raised-button color="accent" fxFlex="30">
+            INGRESAR   
+          </button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+    <div fxFlexOffset="5" fxFlexOffset.xs="5"  fxLayout="row" fxLayoutAlign="center center">
+        <img  style="width: 50px; height: 50px;" src="../../../assets/GA_logo.png" alt="lag">
+        <span>
+            @GA_ide
+        </span>
+    </div>
+  </div>
+  
