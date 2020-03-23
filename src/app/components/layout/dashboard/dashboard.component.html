@@ -1,0 +1,84 @@
+<div style="height: 100%;" fxLayout="row" >
+    <mat-sidenav-container>
+        <mat-sidenav #sidenav mode="side" closed>
+        <mat-toolbar>
+            <mat-toolbar-row>
+            <h2> Menu</h2>
+            </mat-toolbar-row>
+        </mat-toolbar>
+        <mat-nav-list>
+            <mat-list-item *ngFor="let link of links">
+            <a matLine href="...">{{ link }}</a>
+            <button mat-icon-button >
+                <mat-icon>label</mat-icon>
+            </button>
+            </mat-list-item>
+        </mat-nav-list>
+        </mat-sidenav>
+    </mat-sidenav-container>
+    <div fxLayout="column" fxFlex style="background-color: rgba(0, 174, 255, 0.068); ">
+        <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="none center" >
+                <mat-icon fxFlex.xs="5" (click)="sidenav.toggle()" >menu</mat-icon>
+                <a fxFlexOffset="5" fxFlex="3" fxHide.xs ><span>Inicio</span></a>
+                <a fxFlexOffset="5" fxFlex="3" fxHide.xs><span>Contactos</span></a>
+                <mat-form-field fxHide>
+                    <input matInput [matDatepicker]="picker" >
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                <mat-icon fxFlexOffset.xs="30" fxFlex.xs="5" fxFlexOffset="65" (click)="picker.open()">event</mat-icon>
+                <mat-icon fxFlexOffset.xs="10" fxFlexOffset="2" fxFlex.xs="5">notifications</mat-icon>
+                <button fxFlexOffset.xs="15" fxFlex.xs="30" fxFlex mat-icon-button  [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                    Admin
+                   <mat-icon>more_vert</mat-icon>
+              </button>
+                <mat-menu  #menu="matMenu">
+                        <button mat-menu-item>
+                          <mat-icon>account_circle</mat-icon>
+                          <span>Perfil</span>
+                        </button>
+                        <button mat-menu-item disabled>
+                          <mat-icon>brightness_2</mat-icon>
+                          <span>Modo Oscuro</span>
+                        </button>
+                        <button mat-menu-item>
+                          <mat-icon>power_settings_new</mat-icon>
+                          <span>Cerrar Sesión</span>
+                        </button>
+                </mat-menu>                
+        </mat-toolbar>
+        <div fxLayout="row" fxLayout.xs="column" style="margin-top: 4%; margin-bottom: 4%;"
+        fxLayoutGap="25px">
+            <mat-card *ngFor="let estado of estados, index as i" fxFlex="15" 
+            fxFlex.xs fxFlexAlign="center" fxLayout="column" fxLayoutAlign="space-evenly center">
+                <mat-card-header>
+                  <div mat-card-avatar><mat-icon>person</mat-icon> </div>
+                  <mat-card-title>Personas {{estado}}</mat-card-title>
+                  <mat-card-subtitle style="text-align: center;">P.I.</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                  <h1 style="text-align: center; font-size: 350%;">
+                      {{numeros[i]}}
+                  </h1>
+                </mat-card-content>
+                <mat-card-actions >
+                  <button mat-button>MOSTRAR</button>
+                  <button mat-button>OCULTAR</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-around center" >
+            <google-map [center]="position" >
+                <map-marker
+                    [position]="position"
+                    [label]="label"
+                    [title]="title">
+
+                </map-marker>
+            </google-map>
+            <div>
+                Grafico aquí
+            </div>
+        </div>
+    </div>
+    
+</div>

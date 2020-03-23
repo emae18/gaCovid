@@ -15,7 +15,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatListModule } from '@angular/material/list';
-
+import { MatSidenavModule} from '@angular/material/sidenav';
+import { MatMenuModule } from '@angular/material/menu';
 @NgModule({
   declarations: [],
   imports: [
@@ -34,7 +35,9 @@ import { MatListModule } from '@angular/material/list';
     MatTableModule,
     MatProgressSpinnerModule,
     MatPaginatorModule,
-    MatListModule
+    MatListModule,
+    MatSidenavModule,
+    MatMenuModule
   ],
   exports: [
     MatButtonModule,
@@ -51,7 +54,9 @@ import { MatListModule } from '@angular/material/list';
     MatTableModule,
     MatProgressSpinnerModule,
     MatPaginatorModule,
-    MatListModule
+    MatListModule,
+    MatSidenavModule,
+    MatMenuModule
   ],
 })
 export class MaterialModule { }
