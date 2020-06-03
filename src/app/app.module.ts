@@ -12,7 +12,8 @@ import { LoginComponent } from './components/login/login.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { DashboardComponent } from './components/layout/dashboard/dashboard.component';
 import { DataPointsComponent } from './components/data-points/data-points.component';
-
+import { HighchartsChartModule } from 'highcharts-angular';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,9 +29,11 @@ import { DataPointsComponent } from './components/data-points/data-points.compon
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    HighchartsChartModule
   ],
-  providers: [],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
